@@ -43,8 +43,12 @@
 (define one-half (make-rat 1 2))
 (define one-third (make-rat 1 3))
 
-(print-rat one-half)
-(print-rat (add-rat one-half one-third))
-(print-rat (mul-rat one-half one-third))
-(print-rat (add-rat one-third one-third))
+; Tests
+
+(equal-rat? (add-rat one-half one-third)
+   (make-rat 5 6))
+(equal-rat? (mul-rat one-half one-third)
+   (make-rat 1 6))
+(equal-rat? (add-rat one-third one-third)
+   (make-rat 2 3))
             
