@@ -6,16 +6,12 @@
   (+ (* x x) (* y y)))
 
 (define (solution a b c)
-  (cond ((and (> a b) (> b c)) (sum-square a b))
-        ((and (> a c) (> b c)) (sum-square a b))
-        ((and (> a b) (> c b)) (sum-square a c))
-        ((and (> a b) (> c a)) (sum-square a c))
-        ((and (> b c) (> c a)) (sum-square b c))
-        ((and (> c b) (> b a)) (sum-square b c))
-        ((= a b) (sum-square b c))
-        ((= a c) (sum-square a b))
-        ((= b c) (sum-square a c))
-        (else (sum-square a b))))
+  (cond ((and (>= b c) (or (>= a b) (>= b c))) (sum-square a b))
+        ((and (>= a b) (>= c b)) (sum-square a c))
+        ((and (>= a b) (>= c a)) (sum-square a c))
+        ((and (>= b c) (>= c a)) (sum-square b c))
+        ((and (>= c b) (>= b a)) (sum-square b c))
+      ))
 
 ; tests
 (test-case "distinct values" 
