@@ -5,12 +5,18 @@
 (define (sum-square x y)
   (+ (* x x) (* y y)))
 
+;; old solution which finds the two largest numbers
+;; (define (solution a b c)
+;;   (cond ((and (>= b c) (or (>= a b) (>= a c))) (sum-square a b))
+;;         ((and (>= a b) (or (>= c b) (>= c a))) (sum-square a c))
+;;         (else (sum-square b c))
+;;       ))
+
+;; better solution which excludes the smallest number
 (define (solution a b c)
-  (cond ((and (>= b c) (or (>= a b) (>= b c))) (sum-square a b))
-        ((and (>= a b) (>= c b)) (sum-square a c))
-        ((and (>= a b) (>= c a)) (sum-square a c))
-        ((and (>= b c) (>= c a)) (sum-square b c))
-        ((and (>= c b) (>= b a)) (sum-square b c))
+  (cond ((and (<= a b) (<= a c)) (sum-square b c))
+        ((and (<= b c) (<= b a)) (sum-square a c))
+        (else (sum-square a b))
       ))
 
 ; tests
