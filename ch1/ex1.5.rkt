@@ -1,7 +1,5 @@
 #lang sicp
 
-(#%require rackunit)
-
 (define (p) (p))
 
 (define (test x y)
