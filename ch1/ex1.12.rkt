@@ -35,3 +35,6 @@
 (check-equal? (pascal 4 2) 6)
 (check-equal? (pascal 4 3) 4)
 (check-equal? (pascal 4 4) 1)
+
+(trace pascal)
+(pascal 4 2)
