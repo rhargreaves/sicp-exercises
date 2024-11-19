@@ -25,9 +25,11 @@
 ; graph traced below
 
 (trace cc)
-(cc 11 5)
+;(cc 11 5)
+;(cc 50 1)
 
-; space required = max. depth of tree (which is 11 for pennies, plus the 5 kinds of coins)
+; space required = max. depth of tree (16 = 11 for pennies, plus 5 for the 5 kinds of coins).
+; But the number for pennies is the maximum depth, in a linear fashion according to n
 ; Big O(n)
 
 ; number of steps
