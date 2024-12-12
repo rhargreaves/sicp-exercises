@@ -16,4 +16,8 @@
 ; expected a procedure that can be applied to arguments
 ;  given: 2
 
-; presumably it fails as f does not accept the number 2, only another function
+(f f)
+(f 2)
+(2 2)
+
+; fails as 2 is not a function
