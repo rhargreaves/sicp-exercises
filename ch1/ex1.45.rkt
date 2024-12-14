@@ -74,7 +74,7 @@
 ; n = log(d) / log(2)
 
 (define (number-of-averages-needed exp)
-  (inexact->exact (floor (/ (log exp) (log 2)))))
+  (inexact->exact (floor (log exp 2))))
 
 (check-equal? (number-of-averages-needed 2) 1)
 (check-equal? (number-of-averages-needed 3) 1)
