@@ -35,5 +35,6 @@
 
 ; ----
 
+((repeated (lambda (x) ((smooth square) x)) 3) 10)
 
-
+((repeated (compose smooth square) 3) 10)
