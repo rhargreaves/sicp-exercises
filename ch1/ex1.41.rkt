@@ -18,3 +18,7 @@
 (check-equal? ((double inc) 0) 2)
 (check-equal? ((double (double inc)) 0) 4)
 (check-equal? (((double (double double)) inc) 0) 16)
+
+; (double double) =
+; (double (double f)) =
+; (double (double (double (double f))))
