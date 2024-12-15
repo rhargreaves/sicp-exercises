@@ -1,5 +1,8 @@
 #lang sicp
 
+(#%require rackunit
+           racket/trace)
+
 (define (gcd a b)
   (if (= b 0)
    a
@@ -43,12 +46,15 @@
 (define one-half (make-rat 1 2))
 (define one-third (make-rat 1 3))
 
-; Tests
+(check-true
+ (equal-rat? (add-rat one-half one-third)
+             (make-rat 5 6)))
+(check-true
+ (equal-rat? (mul-rat one-half one-third)
+             (make-rat 1 6)))
+(check-true
+ (equal-rat? (add-rat one-third one-third)
+             (make-rat 2 3)))
 
-(equal-rat? (add-rat one-half one-third)
-   (make-rat 5 6))
-(equal-rat? (mul-rat one-half one-third)
-   (make-rat 1 6))
-(equal-rat? (add-rat one-third one-third)
-   (make-rat 2 3))
-            
+; ---
+
