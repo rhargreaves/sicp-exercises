@@ -10,7 +10,11 @@
 
 (define (make-rat n d)
   (let ((g (gcd n d)))
-    (cons (/ n g) (/ d g))))
+    (let ((new-n (/ n g))
+          (new-d (/ d g)))
+      (if (and (> new-n 0) (< new-d 0))
+          (cons (* new-n -1) (* new-d -1))
+          (cons new-n new-d)))))
 
 (define (numer r) (car r))
 (define (denom r) (cdr r))
@@ -56,5 +60,35 @@
  (equal-rat? (add-rat one-third one-third)
              (make-rat 2 3)))
 
-; ---
+(check-true (let ((rat (make-rat 1 2)))
+              (and (= (numer rat) 1)
+                   (= (denom rat) 2))))
 
+(check-true (let ((rat (make-rat -1 -2)))
+              (and (= (numer rat) 1)
+                   (= (denom rat) 2))))
+
+(check-true (let ((rat (make-rat 1 -2)))
+              (and (= (numer rat) -1)
+                   (= (denom rat) 2))))
+
+(check-true (let ((rat (make-rat -1 2)))
+              (and (= (numer rat) -1)
+                   (= (denom rat) 2))))
+
+; characterisation tests
+(check-true (let ((rat (make-rat -0 2)))
+              (and (= (numer rat) 0)
+                   (= (denom rat) 1))))
+
+(check-true (let ((rat (make-rat 0 -2)))
+              (and (= (numer rat) 0)
+                   (= (denom rat) 1))))
+
+(check-true (let ((rat (make-rat -0 -1)))
+              (and (= (numer rat) 0)
+                   (= (denom rat) 1))))
+
+(check-true (let ((rat (make-rat 0 1)))
+              (and (= (numer rat) 0)
+                   (= (denom rat) 1))))
