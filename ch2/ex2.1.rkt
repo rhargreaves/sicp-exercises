@@ -12,7 +12,7 @@
   (let ((g (gcd n d)))
     (let ((new-n (/ n g))
           (new-d (/ d g)))
-      (if (and (> new-n 0) (< new-d 0))
+      (if (< new-d 0)
           (cons (* new-n -1) (* new-d -1))
           (cons new-n new-d)))))
 
