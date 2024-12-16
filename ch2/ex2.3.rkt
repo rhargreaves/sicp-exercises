@@ -57,8 +57,6 @@
                             (make-segment (make-point 0 3) (make-point 4 3))))
  14)
 
-; ---
-
 (define (area-rect r)
   (* (len-segment (adj-seg-rect r)) (len-segment (opp-seg-rect r))))
   
@@ -66,3 +64,48 @@
  (area-rect (make-rect (make-segment (make-point 0 0) (make-point 0 3))
                        (make-segment (make-point 0 3) (make-point 4 3))))
  12)
+
+; alternate representations
+
+(define (make-alt-rect w h)
+  (cons w h))
+
+(define (width-rect r)
+  (car r))
+
+(define (height-rect r)
+  (cdr r))
+
+(define (perimeter-alt-rect r)
+  (* 2 (+ (width-rect r) (height-rect r))))
+
+(define (area-alt-rect r)
+  (* (width-rect r) (height-rect r)))
+
+(check-equal?
+ (area-alt-rect (make-alt-rect 3 4))
+12)
+
+(check-equal?
+ (perimeter-alt-rect (make-alt-rect 3 4))
+14)
+
+; width and height of the rect are the only abstractions we need;
+; but we could still have a rect created by absolute 2D segments as originally done.
+; We need to reimplement width-rect and height-rect to support the original rect:
+
+(define (width-orig-rect r)
+  (len-segment (adj-seg-rect r)))
+
+(define (height-orig-rect r)
+  (len-segment (opp-seg-rect r)))
+
+(check-equal?
+ (width-orig-rect (make-rect (make-segment (make-point 0 0) (make-point 0 3))
+                             (make-segment (make-point 0 3) (make-point 4 3))))
+3)
+
+(check-equal?
+ (height-orig-rect (make-rect (make-segment (make-point 0 0) (make-point 0 3))
+                              (make-segment (make-point 0 3) (make-point 4 3))))
+4)
