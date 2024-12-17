@@ -15,3 +15,4 @@
 (check-equal? (cdr (cons 1 2)) 2)
 (check-equal? (cdr (lambda (m) (m 1 2))) 2)
 (check-equal? ((lambda (m) (m 1 2)) (lambda (p q) q)) 2)
+(check-equal? ((lambda (m) (m 1 2)) (lambda (p q) q)) 2)
