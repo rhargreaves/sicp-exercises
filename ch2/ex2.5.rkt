@@ -3,6 +3,8 @@
 (#%require rackunit
            racket/trace)
 
+; this is called "unique prime factorization theorem"
+
 (define (cons a b)
   (* (expt 2 a) (expt 3 b)))
 
@@ -29,5 +31,5 @@
 (check-equal? (cdr (cons 2 2)) 2)
 
 (check-equal? (cons 5 6) 23328)
-(check-equal? (car (cons 2 2)) 2)
-(check-equal? (cdr (cons 2 2)) 2)
+(check-equal? (car (cons 5 6)) 5)
+(check-equal? (cdr (cons 5 6)) 6)
