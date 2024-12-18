@@ -69,8 +69,8 @@
 ; 1 = one application (f x)
 ; 2 = two apps (f (f x)
 
-; can use a function that increments an integer to test the applications of
-; functions:
+; can use a helper function that increments an integer to test the
+; number of applications per function:
 
 (define (inc n)
   (+ 1 n))
