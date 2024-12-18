@@ -67,7 +67,7 @@
 ; number of times that the function (f) is applied to x.
 ; So 0 = no applications.
 ; 1 = one application (f x)
-; 2 = two apps (f (f x)
+; 2 = two apps (f (f x))
 
 ; can use a helper function that increments an integer to test the
 ; number of applications per function:
