@@ -21,8 +21,8 @@
     (if (< (* upy lby) 0)
         (error "operand spans zero")
         (mul-interval x
-                      (make-interval (/ 1.0 (upper-bound y))
-                                     (/ 1.0 (lower-bound y)))))))
+                      (make-interval (/ 1.0 upy)
+                                     (/ 1.0 lby))))))
 
 (define (width-interval i)
   (- (upper-bound i) (lower-bound i)))
